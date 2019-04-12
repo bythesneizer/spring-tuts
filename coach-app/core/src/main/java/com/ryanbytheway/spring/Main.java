@@ -16,8 +16,10 @@ public class Main {
                 new ClassPathXmlApplicationContext("ApplicationContext.xml");
 
         Coach coach  = context.getBean("tennisCoach", Coach.class);
+        Coach coach1 = context.getBean("footballCoach", Coach.class);
 
         logger.info(coach.getDailyWorkout());
+        logger.info(coach1.getDailyWorkout());
 
         context.close();
     }
