@@ -16,10 +16,19 @@ public class Main {
                 new ClassPathXmlApplicationContext("ApplicationContext.xml");
 
         Coach coach  = context.getBean("tennisCoach", Coach.class);
-        Coach coach1 = context.getBean("footballCoach", Coach.class);
+        Coach coachA  = context.getBean("tennisCoach", Coach.class);
+        Coach coach1 = context.getBean("footballCoach", FootballCoach.class);
+        Coach coach1A = context.getBean("footballCoach", FootballCoach.class);
+
+        logger.info("Memory location for coach: " + coach);
+        logger.info("Memory location for coachA: " + coachA);
+        logger.info("Memory location for coach1: " + coach1);
+        logger.info("Memory location for coach1A: " + coach1A);
 
         logger.info(coach.getDailyWorkout());
         logger.info(coach1.getDailyWorkout());
+        logger.info(coach.getDailyMessage());
+        logger.info(coach1.getDailyMessage());
 
         context.close();
     }
